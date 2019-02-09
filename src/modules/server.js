@@ -1,3 +1,4 @@
+import url from 'url';
 import { createServer } from 'http';
 import 'colors';
 import '../utils/showTime';
@@ -6,15 +7,20 @@ import * as routes from './routes';
 export function start(port) {
   function onRequest(req, res) {
     console.log(`Received request on url: ${req.url}`.time.yellow);
-    switch (req.url) {
-      case '/':
-      case '/start':
+    const pathArr = url.parse(req.url).pathname.split('/').slice(1);
+    console.log(pathArr);
+    switch (pathArr[0]) {
+      case '':
+      case 'start':
         routes.welcome(req, res);
         break;
-      case '/upload':
+      case 'upload':
         routes.upload(req, res);
         break;
-      case '/favicon.png':
+      case 'show':
+        routes.show(req, res, pathArr[1]);
+        break;   
+      case 'favicon.png':
         routes.favicon(req, res);
         break;
       default:

@@ -14,5 +14,6 @@ export const contentType = {
   text: {'Content-Type': 'text/plain; charset=utf-8'},
   html: {'Content-Type': 'text/html; charset=utf-8'},
   icon: {'Content-Type': 'image/x-icon'},
-  png: {'Content-Type': 'image/png'}
+  png: {'Content-Type': 'image/png'},
+  jpg: {'Content-Type': 'image/jpeg'}
 };
