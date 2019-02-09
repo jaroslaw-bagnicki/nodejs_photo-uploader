@@ -1,3 +1,7 @@
+import { resolve } from 'path';
+
+export const STORE_PATH = resolve(__dirname, '../../store');
+
 export const status = {
   ok: 200,
   created: 201,

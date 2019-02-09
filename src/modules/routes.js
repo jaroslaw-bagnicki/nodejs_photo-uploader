@@ -1,9 +1,9 @@
 import fs from 'fs';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 import { IncomingForm } from 'formidable';
 import mv from 'mv';
 import '../utils/showTime';
-import { status, contentType } from './consts';
+import { status, contentType, STORE_PATH } from './consts';
 
 export function welcome(req, res) {
   console.log('Handling \'welcome\' request ...'.time.yellow);
@@ -21,7 +21,7 @@ export function upload(req, res) {
   const form = new IncomingForm();
   form.parse(req, (err, fields, { file }) => {
     if (err) throw err;
-    mv(file.path, resolve(__dirname, '../store/', file.name), (err) => {
+    mv(file.path, join(STORE_PATH, file.name), (err) => {
       if (err) throw err;
       res.writeHead(status.created, contentType.html);
       res.write('recieved image:<br/>');
@@ -33,7 +33,7 @@ export function upload(req, res) {
 
 export function show(req, res, imgName) {
   console.log('Handling \'show\' request ...'.time.yellow);
-  fs.readFile(resolve(__dirname, '../store/', imgName), 'binary', (err, image) => {
+  fs.readFile(resolve(STORE_PATH, imgName), 'binary', (err, image) => {
     if (err) throw err;
     res.writeHead(status.ok, contentType.png);
     res.write(image, 'binary');

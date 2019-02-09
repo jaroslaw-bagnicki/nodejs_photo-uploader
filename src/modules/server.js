@@ -8,7 +8,6 @@ export function start(port) {
   function onRequest(req, res) {
     console.log(`Received request on url: ${req.url}`.time.yellow);
     const pathArr = url.parse(req.url).pathname.split('/').slice(1);
-    console.log(pathArr);
     switch (pathArr[0]) {
       case '':
       case 'start':
