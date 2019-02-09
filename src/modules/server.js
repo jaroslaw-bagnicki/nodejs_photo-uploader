@@ -5,7 +5,7 @@ import * as routes from './routes';
 
 export function start(port) {
   function onRequest(req, res) {
-    if (req.url !== '/favicon.ico') console.log(`Received request on url: ${req.url}`.time.yellow);
+    console.log(`Received request on url: ${req.url}`.time.yellow);
     switch (req.url) {
       case '/':
       case '/start':
@@ -13,6 +13,9 @@ export function start(port) {
         break;
       case '/upload':
         routes.upload(req, res);
+        break;
+      case '/favicon.png':
+        routes.favicon(req, res);
         break;
       default:
         routes.notFound(req, res);
