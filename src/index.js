@@ -1,3 +1,6 @@
-import { hello } from './modules/server';
+import * as server from './modules/server';
+import getPort from 'get-port';
 
-hello();
+const port = (async () => await getPort({port: [8080, 8081, 8082, 8083]}))();
+
+(async () => server.start(await port))();
