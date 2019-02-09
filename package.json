@@ -1,0 +1,25 @@
+{
+  "name": "photo-uploader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js localhost 3000 --watch src --exec babel-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jaroslaw-bagnicki/nodejs_photo-uploader.git"
+  },
+  "author": "Jarosław Bagnicki <jarek@bagnicki.net>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/jaroslaw-bagnicki/nodejs_photo-uploader/issues"
+  },
+  "homepage": "https://github.com/jaroslaw-bagnicki/nodejs_photo-uploader#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "nodemon": "^1.18.10"
+  }
+}
