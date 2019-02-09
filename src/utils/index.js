@@ -1,1 +1,1 @@
-export { getTime } from './getTime';
+export { showTime } from './showTime';

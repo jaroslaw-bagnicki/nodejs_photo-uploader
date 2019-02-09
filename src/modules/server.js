@@ -1,14 +1,14 @@
 import { createServer } from 'http';
 import 'colors';
-import { getTime } from '../utils';
+import '../utils/showTime';
 
 export function start(port) {
   function onRequest(req, res) {
-    console.log(`${getTime()} Request received.`.yellow);
+    console.log('Request received.'.time.yellow);
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.write('Hello world');
     res.end();
   }
 
-  createServer(onRequest).listen(port, () => console.log(`${getTime()} Server started at http://localhost:${port}`.blue));
+  createServer(onRequest).listen(port, () => console.log(`Server started at http://localhost:${port}`.time.blue));
 }
